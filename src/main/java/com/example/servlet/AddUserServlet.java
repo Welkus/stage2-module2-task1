@@ -23,11 +23,15 @@ public class AddUserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = new User();
+        String firstName = req.getParameter("firstName");
+        String lastName = req.getParameter("lastName");
+
+        User user = new User(firstName, lastName);
         Warehouse.getInstance().addUser(user);
 
         req.setAttribute("user", user);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/add");
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/add.jsp");
         dispatcher.forward(req, resp);
     }
 

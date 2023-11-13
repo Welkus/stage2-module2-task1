@@ -15,7 +15,7 @@ import java.io.IOException;
 public class AddUserServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
         Warehouse.getInstance().addUser(user);
 
